@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * HST component that queries the repository for the newest {@link org.onehippo.forge.blog.beans.Blogpost} based on the date
- *  Needs HST parameter {@literal blogFolder} that contains the path to the blogposts relative from the site root.
+ * Needs HST parameter {@literal blogFolder} that contains the path to the blogposts relative from the site root.
  *
  * @author Jasha Joachimsthal
  */
@@ -62,7 +62,7 @@ public class LatestBlog extends BaseSiteComponent {
         }
 
         HippoBean blogsFolderBean = getSiteContentBaseBean(request).getBean(blogFolder, HippoFolderBean.class);
-        if(blogsFolderBean ==null){
+        if (blogsFolderBean == null) {
             log.error("Blog folder bean was null");
             return null;
         }

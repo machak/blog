@@ -95,16 +95,16 @@
         <sv:value/>
       </sv:property>
       <sv:property sv:name="hippostdpubwf:creationDate" sv:type="Date">
-          <sv:value>2008-03-26T12:03:00.000+01:00</sv:value>
+        <sv:value>2008-03-26T12:03:00.000+01:00</sv:value>
       </sv:property>
       <sv:property sv:name="hippostdpubwf:lastModificationDate" sv:type="Date">
-          <sv:value>2008-03-26T12:03:00.000+01:00</sv:value>
+        <sv:value>2008-03-26T12:03:00.000+01:00</sv:value>
       </sv:property>
       <sv:property sv:name="hippostdpubwf:lastModifiedBy" sv:type="String">
         <sv:value/>
       </sv:property>
       <sv:property sv:name="hippostdpubwf:publicationDate" sv:type="Date">
-          <sv:value>2008-03-26T12:03:00.000+01:00</sv:value>
+        <sv:value>2008-03-26T12:03:00.000+01:00</sv:value>
       </sv:property>
       <sv:property sv:name="blog:summary" sv:type="String">
         <sv:value/>

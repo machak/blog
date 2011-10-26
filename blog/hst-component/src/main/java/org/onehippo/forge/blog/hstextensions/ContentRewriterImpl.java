@@ -26,10 +26,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ContentRewriterImpl does the same as {@link SimpleContentRewriter}. 
+ * ContentRewriterImpl does the same as {@link SimpleContentRewriter}.
  * Supports adding rel="external" to external links or rewriting all links to external form, e.g. http://example.com/link.html.
- * @author jashaj
  *
+ * @author jashaj
  */
 public class ContentRewriterImpl extends SimpleContentRewriter {
     private static final Logger log = LoggerFactory.getLogger(ContentRewriterImpl.class);
@@ -45,8 +45,9 @@ public class ContentRewriterImpl extends SimpleContentRewriter {
 
     /**
      * Rewrites all links to external form, e.g. http://example.com/link.html. Useful for content exchange through feeds
-     * @param html String of the HTML
-     * @param node {@link Node} that contains the HTML
+     *
+     * @param html           String of the HTML
+     * @param node           {@link Node} that contains the HTML
      * @param requestContext {@link HstRequestContext}
      * @return rewritten String of the HTML with all links rewritten to external form
      */
@@ -56,14 +57,15 @@ public class ContentRewriterImpl extends SimpleContentRewriter {
 
     /**
      * Internal method that rewrites all links, optionally makes links in external form or adds a rel="external" to external links
-     * @param html String of the HTML
-     * @param node {@link Node} that contains the HTML
-     * @param requestContext {@link HstRequestContext}
+     *
+     * @param html             String of the HTML
+     * @param node             {@link Node} that contains the HTML
+     * @param requestContext   {@link HstRequestContext}
      * @param externalizeLinks boolean that defines if all links should be rewritten to external form, e.g. http://example.com/link.html
      * @return rewritten String of the HTML
      */
     private String rewriteContent(String html, Node node, HstRequestContext requestContext,
-            boolean externalizeLinks) {
+                                  boolean externalizeLinks) {
         // only create if really needed
         StringBuilder sb = null;
 

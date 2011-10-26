@@ -19,8 +19,8 @@ import org.hippoecm.hst.content.beans.Node;
 
 /**
  * Annotated bean for {@link Node} of type {@link BeanConstants#DOCTYPE_BLOGPOST}
- * @author Jasha Joachimsthal
  *
+ * @author Jasha Joachimsthal
  */
 @Node(jcrType = BeanConstants.DOCTYPE_BLOGPOST)
 public class Blogpost extends TextDocument {

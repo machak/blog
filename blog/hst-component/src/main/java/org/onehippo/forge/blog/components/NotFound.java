@@ -23,8 +23,8 @@ import static javax.servlet.http.HttpServletResponse.SC_NOT_FOUND;
 
 /**
  * Same as {@link Detail} but with a {@literal 404} status code
- * @author Jasha Joachimsthal
  *
+ * @author Jasha Joachimsthal
  */
 public class NotFound extends Detail {
 

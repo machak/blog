@@ -15,6 +15,11 @@
  */
 package org.onehippo.forge.blog.components.socialmedia;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -22,16 +27,12 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.forge.blog.components.BaseSiteComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Component for displaying Tweets using Twitter4J
@@ -127,7 +128,7 @@ public class TwitterListing extends BaseSiteComponent {
                 .setOAuthAccessTokenSecret(tokenSecret)
                 .setOAuthConsumerKey(consumerKey)
                 .setOAuthConsumerSecret(consumerSecret);
-        
+
         TwitterFactory twitterFactory = new TwitterFactory(cb.build());
         return twitterFactory.getInstance();
     }

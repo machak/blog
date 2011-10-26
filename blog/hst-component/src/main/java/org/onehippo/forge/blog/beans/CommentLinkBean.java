@@ -20,7 +20,6 @@ import org.hippoecm.hst.content.beans.standard.HippoFacetSelect;
 
 /**
  * Bean mapping class for the 'imagelink' document type
- *
  */
 @Node(jcrType = "blog:commentlink")
 public class CommentLinkBean extends HippoFacetSelect {

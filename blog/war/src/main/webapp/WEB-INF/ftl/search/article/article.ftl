@@ -17,39 +17,41 @@
   * limitations under the License.
   --]
 <article>
-  <h1>Search result</h1>
-  [#if searchfor?has_content && nrhits = 0]<p>I'm sorry but I can't find any document that matches your question.</p>
-  [#elseif searchfor?has_content]<p>You searched for "${searchfor}" and I found ${nrhits} documents</p>
-  [#elseif nrhits gt 0]<p>I found ${nrhits} documents</p>
-  [#else]<p>I'm sorry, did you ask something?</p>
-  [/#if]
+    <h1>Search result</h1>
+[#if searchfor?has_content && nrhits = 0]<p>I'm sorry but I can't find any document that matches your question.</p>
+[#elseif searchfor?has_content]<p>You searched for "${searchfor}" and I found ${nrhits} documents</p>
+[#elseif nrhits gt 0]<p>I found ${nrhits} documents</p>
+[#else]<p>I'm sorry, did you ask something?</p>
+[/#if]
 
-  [#if documents?has_content]
-  [#list documents as doc]
-  <section class="teaser">
-    [#if doc.type="comment"]
-    [#assign link][@hst.link hippobean=doc.commentTo/]#${doc.name}[/#assign]
-    [#else][#assign link][@hst.link hippobean=doc/][/#assign]
-    [/#if]
-    <a href="${link}">[@site.calendar doc=doc/]
-    <h2>${doc.title}</h2>
-    [#if doc.summary?has_content]<p class="intro">${doc.summary}</p>[/#if]
-    </a>
-  </section>
-  [/#list]
-  [/#if]
-
-  [#if pages gt 1]
-    <ol class="paging">
-    [#list 0..(pages - 1) as i]
-    [#if i = page]<li class="active">${i+1}</li>
-    [#else]
-      [#assign pageURL][@hst.renderURL][@hst.param name="page" value="${i}"/]
-      [#if searchfor?has_content][@hst.param name="searchfor" value="${searchfor}"/][/#if][/@hst.renderURL][/#assign]
-      <li><a href="${pageURL}">${i+1}</a></li>[/#if]
+[#if documents?has_content]
+    [#list documents as doc]
+        <section class="teaser">
+            [#if doc.type="comment"]
+                [#assign link][@hst.link hippobean=doc.commentTo/]#${doc.name}[/#assign]
+            [#else][#assign link][@hst.link hippobean=doc/][/#assign]
+            [/#if]
+            <a href="${link}">[@site.calendar doc=doc/]
+                <h2>${doc.title}</h2>
+                [#if doc.summary?has_content]<p class="intro">${doc.summary}</p>[/#if]
+            </a>
+        </section>
     [/#list]
+[/#if]
+
+[#if pages gt 1]
+    <ol class="paging">
+        [#list 0..(pages - 1) as i]
+            [#if i = page]
+                <li class="active">${i+1}</li>
+            [#else]
+                [#assign pageURL][@hst.renderURL][@hst.param name="page" value="${i}"/]
+                    [#if searchfor?has_content][@hst.param name="searchfor" value="${searchfor}"/][/#if][/@hst.renderURL][/#assign]
+                <li><a href="${pageURL}">${i+1}</a></li>[/#if]
+        [/#list]
     </ol>
-  [/#if]
+[/#if]
 </article>
 [@hst.headContribution]<title>Search result | ${labels['site.name']}</title>[/@hst.headContribution]
-[@hst.headContribution]<meta name="robots" content="noindex, follow"/>[/@hst.headContribution]
+[@hst.headContribution]
+<meta name="robots" content="noindex, follow"/>[/@hst.headContribution]

@@ -198,11 +198,11 @@
       <sv:value>Jasha's blog</sv:value>
       <sv:value>Jasha Joachimsthal</sv:value>
       <sv:value>This work is licensed under a Creative Commons Attribution-Noncommercial-No Derivative Works 3.0
-                Netherlands License
-            </sv:value>
+        Netherlands License
+      </sv:value>
       <sv:value>Blog by Jasha Joachimsthal about technology, myself, my work at Hippo and other things that cross
-                my mind
-            </sv:value>
+        my mind
+      </sv:value>
       <sv:value>/blogposts</sv:value>
     </sv:property>
     <sv:property sv:name="hst:relativecontentpath" sv:type="String">

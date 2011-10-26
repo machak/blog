@@ -16,8 +16,8 @@
   * limitations under the License.
   --]
 <aside>
-  [@hst.defineObjects/]
+[@hst.defineObjects/]
   [#list hstResponse.childContentNames as include]
     [@hst.include ref="${include}"/]
-  [/#list]
+[/#list]
 </aside>

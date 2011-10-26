@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/blogjsp/include/include.jsp" %>
 <%--
   * Copyright 2010 Jasha Joachimsthal
@@ -16,13 +16,13 @@
   * limitations under the License.
 --%>
 <hst:headContribution category="css">
-  <link rel="stylesheet" href="<hst:link path="/css/style.css"/>" />
+  <link rel="stylesheet" href="<hst:link path="/css/style.css"/>"/>
 </hst:headContribution>
 <hst:headContribution category="css">
   <link rel="stylesheet" href="<hst:link path="/css/jquery.fancybox-1.3.1.css"/>"/>
 </hst:headContribution>
 <hst:headContribution category="css">
-  <link href="<hst:link path="/css/shMin.css"/>" rel="stylesheet" />
+  <link href="<hst:link path="/css/shMin.css"/>" rel="stylesheet"/>
 </hst:headContribution>
 <hst:headContribution category="jsExternal">
   <script src="<hst:link path="/js/site.js"/>"></script>
@@ -36,14 +36,24 @@
 <hst:headContribution category="jsInline">
   <script>init();</script>
 </hst:headContribution>
-<<hst:headContribution><link rel="shortcut icon" href="<hst:link path="/images/favicon.ico"/>" /></hst:headContribution>
-<hst:headContribution><meta content="${labels['site.author']}" name="author"/></hst:headContribution> 
-<hst:headContribution><meta content="Hippo Site Toolkit" name="generator"/></hst:headContribution>
-<hst:headContribution><meta name="viewport" content="width=device-width, initial-scale=1.0"/></hst:headContribution>
-<hst:headContribution><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /></hst:headContribution>
-<hst:headContribution>
-<link rel="alternate" type="application/atom+xml" title="${labels['site.name']} - Atom" href="<hst:link path="/feeds/posts/default"/>" />
+<<hst:headContribution>
+  <link rel="shortcut icon" href="<hst:link path="/images/favicon.ico"/>"/>
 </hst:headContribution>
 <hst:headContribution>
-<link rel="alternate" type="application/rss+xml" title="${labels['site.name']} - RSS" href="<hst:link path="/feeds/posts/default"/>?alt=rss" />
+  <meta content="${labels['site.author']}" name="author"/>
+</hst:headContribution>
+<hst:headContribution>
+  <meta content="Hippo Site Toolkit" name="generator"/>
+</hst:headContribution>
+<hst:headContribution>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</hst:headContribution>
+<hst:headContribution>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+</hst:headContribution>
+<hst:headContribution>
+  <link rel="alternate" type="application/atom+xml" title="${labels['site.name']} - Atom" href="<hst:link path="/feeds/posts/default"/>"/>
+</hst:headContribution>
+<hst:headContribution>
+  <link rel="alternate" type="application/rss+xml" title="${labels['site.name']} - RSS" href="<hst:link path="/feeds/posts/default"/>?alt=rss"/>
 </hst:headContribution>

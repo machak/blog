@@ -20,20 +20,21 @@
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-<meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 [@hst.headContributions categoryExcludes="css,jsExternal,jsInline"/]
 [@hst.headContributions categoryIncludes="css"/]
-<script src="[@hst.link path="/blogjs/libs/modernizr-1.6.min.js"/]"></script>
+    <script src="[@hst.link path="/blogjs/libs/modernizr-1.6.min.js"/]"></script>
 </head>
 <body>
 <div id="container">
 [@hst.include ref="header"/]
-<div id="main">
-[@hst.include ref="article"/]
+    <div id="main">
+    [@hst.include ref="article"/]
 [@hst.include ref="aside"/]
-</div>
+    </div>
 [@hst.include ref="footer"/]
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
@@ -42,17 +43,20 @@
 [@hst.headContributions categoryIncludes="jsInline"/]
 [#-- Google Analytics goes here --]
 [#if labels['googleanalytics.account']?has_content]
-<script>if (window.location.hostname!="localhost") {
+<script>if (window.location.hostname != "localhost") {
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '${labels['googleanalytics.account']}']);
     [#if labels['googleanalytics.domain']?has_content]
-    _gaq.push(['_setDomainName', '${labels['googleanalytics.domain']}']);
+        _gaq.push(['_setDomainName', '${labels['googleanalytics.domain']}']);
     [/#if]
     _gaq.push(['_trackPageview']);
     (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
     })();
 }</script>
 [/#if]

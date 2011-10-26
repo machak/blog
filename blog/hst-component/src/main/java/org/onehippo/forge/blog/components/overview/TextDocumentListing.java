@@ -15,11 +15,11 @@
  */
 package org.onehippo.forge.blog.components.overview;
 
+import java.util.List;
+
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.forge.blog.beans.TextDocument;
-
-import java.util.List;
 
 /**
  * Component for an overview of {@link org.onehippo.forge.blog.beans.TextDocument}} documents.

@@ -1,5 +1,8 @@
 package org.onehippo.forge.blog.components.overview;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -16,9 +19,6 @@ import org.onehippo.forge.blog.components.BaseSiteComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Abstract component for an overview of documents in a folder.
  * Queries a folder and puts a paged resultset on the request.
@@ -34,7 +34,7 @@ public abstract class AbstractListing extends BaseSiteComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
         setPageTitle(request);
-        
+
         HippoBean contentBean = getContentBean(request);
         if (!(contentBean instanceof HippoFolderBean)) {
             log.warn("Parameter hst:relativecontentpath does not reference a folder");
@@ -104,7 +104,7 @@ public abstract class AbstractListing extends BaseSiteComponent {
     /**
      * Iterates over query result for the requested "page" and returns a List of documents.
      *
-     * @param request   {@link org.hippoecm.hst.core.component.HstRequest}   
+     * @param request   {@link org.hippoecm.hst.core.component.HstRequest}
      * @param page      current page number
      * @param beanClass the Class of documents that is used as query filter
      * @return {@link java.util.List} of documents or empty List if no documents are found

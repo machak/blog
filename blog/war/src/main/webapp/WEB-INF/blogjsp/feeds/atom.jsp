@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="application/atom+xml; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="application/atom+xml; charset=UTF-8" pageEncoding="UTF-8" %>
 <%--
   * Copyright 2010 Jasha Joachimsthal
   *

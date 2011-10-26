@@ -17,8 +17,8 @@ package org.onehippo.forge.blog.beans;
 
 /**
  * Utility class that contains constants for all document types and their fields
- * @author Jasha Joachimsthal
  *
+ * @author Jasha Joachimsthal
  */
 public final class BeanConstants {
 
@@ -28,7 +28,7 @@ public final class BeanConstants {
 
     public static final String DOCTYPE_BASEDOCUMENT = "blog:basedocument";
     public static final String DOCTYPE_BLOGPOST = "blog:blogpost";
-    public static final String DOCTYPE_COMMENT  = "blog:comment";
+    public static final String DOCTYPE_COMMENT = "blog:comment";
 
     public static final String COMPOUND_BODY = "blog:body";
 

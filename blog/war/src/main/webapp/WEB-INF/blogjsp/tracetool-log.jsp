@@ -11,21 +11,28 @@
   distributed under the License is distributed on an "AS IS"
   BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
-  limitations under the License. --%><%@ page language="java" import="java.util.*, java.text.*, org.slf4j.helpers.MessageFormatter, org.hippoecm.hst.logging.*, org.hippoecm.hst.site.HstServices" %><%
-LogEventBuffer traceLogEventBuffer = (LogEventBuffer) HstServices.getComponentManager().getComponent("hstTraceToolLogEventBuffer");
-List logEventList = new LinkedList();
-synchronized (traceLogEventBuffer) {
+  limitations under the License. --%>
+<%@ page language="java" import="java.text.DateFormat, java.text.SimpleDateFormat, java.util.Date, java.util.Iterator, java.util.LinkedList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.hippoecm.hst.logging.LogEvent" %>
+<%@ page import="org.hippoecm.hst.logging.LogEventBuffer" %>
+<%@ page import="org.hippoecm.hst.site.HstServices" %>
+<%@ page import="org.slf4j.helpers.MessageFormatter" %>
+<%
+  LogEventBuffer traceLogEventBuffer = (LogEventBuffer) HstServices.getComponentManager().getComponent("hstTraceToolLogEventBuffer");
+  List logEventList = new LinkedList();
+  synchronized (traceLogEventBuffer) {
     for (Iterator it = traceLogEventBuffer.iterator(); it.hasNext(); ) {
-        logEventList.add(it.next());
+      logEventList.add(it.next());
     }
-}
-DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
-for (Iterator it = logEventList.iterator(); it.hasNext(); ) {
+  }
+  DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
+  for (Iterator it = logEventList.iterator(); it.hasNext(); ) {
     LogEvent logEvent = (LogEvent) it.next();
     Date ts = new Date(logEvent.getTimestamp());
     String level = logEvent.getLevel().toString();
     String threadName = logEvent.getThreadName();
-    Object [] args = new Object [] { df.format(ts), level, threadName, logEvent.getMessage() };
+    Object[] args = new Object[]{df.format(ts), level, threadName, logEvent.getMessage()};
     out.println(MessageFormatter.arrayFormat("{} {} {} {}", args));
-}
+  }
 %>

@@ -13,20 +13,20 @@
   See the License for the specific language governing permissions and
   limitations under the License. 
 --%>
-<%@ page language="java" import="java.util.*, org.hippoecm.hst.logging.*, org.hippoecm.hst.site.HstServices" %>
+<%@ page language="java" import="org.hippoecm.hst.logging.LogEventBuffer, org.hippoecm.hst.site.HstServices" %>
 <%
-String status = "OK";
-String message = "";
+  String status = "OK";
+  String message = "";
 
-try {
-	LogEventBuffer traceLogEventBuffer = (LogEventBuffer) HstServices.getComponentManager().getComponent("hstTraceToolLogEventBuffer");
-	String logLevel = request.getParameter("level");
-	if (logLevel != null) {
-	    traceLogEventBuffer.setLevelByName(logLevel);
-	}
-} catch (Exception e) {
+  try {
+    LogEventBuffer traceLogEventBuffer = (LogEventBuffer) HstServices.getComponentManager().getComponent("hstTraceToolLogEventBuffer");
+    String logLevel = request.getParameter("level");
+    if (logLevel != null) {
+      traceLogEventBuffer.setLevelByName(logLevel);
+    }
+  } catch (Exception e) {
     status = "FAIL";
     message = e.toString();
-}
+  }
 %>
 [ "<%=status%>", "<%=message%>" ]

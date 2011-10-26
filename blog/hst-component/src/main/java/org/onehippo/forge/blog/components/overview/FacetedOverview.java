@@ -1,5 +1,8 @@
 package org.onehippo.forge.blog.components.overview;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFacetChildNavigationBean;
@@ -7,9 +10,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.forge.blog.beans.Blogpost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Component for an overview of documents within a facet

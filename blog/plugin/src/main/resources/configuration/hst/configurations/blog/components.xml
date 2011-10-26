@@ -97,7 +97,8 @@
           consumerKey - consumer key for Twitter API
           consumerSecret - consumer shared secret for Twitter API
           See http://www.jasha.eu/blogposts/2010/07/show-tweets-with-hst-and-twitter4j.html for
-          explanation and links for this component</sv:value>
+          explanation and links for this component
+        </sv:value>
       </sv:property>
       <sv:property sv:name="hst:parameternames" sv:type="String">
         <sv:value>boxTitle</sv:value>

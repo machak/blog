@@ -183,7 +183,7 @@
   </sv:node>
 
   <!-- TODO: add construction folder (need blog root first) -->
- <!--   <sv:node sv:name="weblogdemo-construction">
+  <!--   <sv:node sv:name="weblogdemo-construction">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>

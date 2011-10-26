@@ -221,7 +221,8 @@
           sender.email - From address of comment notification
           receiver.email - Email address to send comment notifications to
           spamfilter.apikey - Your API key at http://akismet.com/
-          spamfilter.websiteurl - The public URL of your website (for Akismet)</sv:value>
+          spamfilter.websiteurl - The public URL of your website (for Akismet)
+        </sv:value>
       </sv:property>
       <sv:property sv:name="hst:parameternames" sv:type="String">
         <sv:value>enableComments</sv:value>
@@ -369,11 +370,12 @@
     </sv:property>
     <sv:property sv:name="hst:description" sv:type="String">
       <sv:value>Parameters to set:
-title - Title of the feed (required)
-author - Author name
-copyright - Copyright information
-description - Feed description (required)
-preferredPath - Preferred path for the feed link</sv:value>
+        title - Title of the feed (required)
+        author - Author name
+        copyright - Copyright information
+        description - Feed description (required)
+        preferredPath - Preferred path for the feed link
+      </sv:value>
     </sv:property>
     <sv:property sv:name="hst:parameternames" sv:type="String">
       <sv:value>author</sv:value>

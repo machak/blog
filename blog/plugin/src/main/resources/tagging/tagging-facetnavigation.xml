@@ -19,7 +19,7 @@
     <sv:value>hippofacnav:facetnavigation</sv:value>
   </sv:property>
   <sv:property sv:name="hippo:docbase" sv:type="String">
-      <sv:value>2c21a29c-a5d1-4e84-aec4-594e5bf93b25</sv:value>
+    <sv:value>2c21a29c-a5d1-4e84-aec4-594e5bf93b25</sv:value>
   </sv:property>
   <sv:property sv:name="hippofacnav:facets" sv:type="String">
     <sv:value>hippostd:tags</sv:value>

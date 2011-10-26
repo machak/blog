@@ -15,14 +15,14 @@
  */
 package org.onehippo.forge.blog.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.text.StrTokenizer;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.utils.SimpleHtmlExtractor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Node(jcrType = "blog:textdocument")
 public class TextDocument extends BaseDocument {
@@ -65,9 +65,10 @@ public class TextDocument extends BaseDocument {
         return tagList;
     }
 
-        /**
+    /**
      * Utility method to return text for the summary in an {@link org.onehippo.forge.blog.components.overview.BlogListing} page.<br />
      * If the summary field is empty, the first paragraph from the body is used.
+     *
      * @return summary for an {@link org.onehippo.forge.blog.components.overview.BlogListing} page
      */
     public String getOverviewSummary() {

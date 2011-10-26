@@ -13,7 +13,7 @@
   * See the License for the specific language governing permissions and
   * limitations under the License.
 --%>
-<%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ tag language="java" pageEncoding="UTF-8" %>
 <%@ attribute name="document" type="org.onehippo.forge.blog.beans.BaseDocument" %>
 <%@ attribute name="contentrewriter" type="org.hippoecm.hst.content.rewriter.ContentRewriter" %>
 <%@ attribute name="titleaslink" type="java.lang.Boolean" required="false"

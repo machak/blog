@@ -21,8 +21,8 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 /**
  * Annotated bean for {@link Node} of type {@link BeanConstants#DOCTYPE_COMMENT}
- * @author Jasha Joachimsthal
  *
+ * @author Jasha Joachimsthal
  */
 @Node(jcrType = BeanConstants.DOCTYPE_COMMENT)
 public class CommentBean extends TextDocument {

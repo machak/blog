@@ -17,26 +17,28 @@
   --]
 [#setting locale="en_GB"]
 <section>
-  [#if boxTitle?has_content]<h2>${boxTitle}</h2>[/#if]
-  [#if statuses?has_content]
-  <ul>
-    [#compress]
-    [#list statuses as status]
-    <li>
-      [#if status.retweet=true]
-        RT ${status.retweetedStatus.user.screenName}: ${status.retweetedStatus.text}<br />
-        Retweeted at
-        <a href="http://twitter.com/${status.retweetedStatus.user.screenName}/status/${status.retweetedStatus.id}" rel="external">
-          <time datetime="${status.createdAt?string("yyyy-MM-dd'T'HH:mm:ss")}">${status.createdAt?string("d MMM H:mm")}</time></a>
-      [#else]${status.text}<br />
-        <a href="http://twitter.com/${status.user.screenName}/status/${status.id}" rel="external">
-          <time datetime="${status.createdAt?string("yyyy-MM-dd'T'HH:mm:ss")}">${status.createdAt?string("d MMM H:mm")}</time></a>
-      [/#if]
-    </li>
-    [#if status_index=4][#break/][/#if]
-    [/#list]
-    [/#compress]
-  </ul>
-  [#else]No tweets found
-  [/#if]
+[#if boxTitle?has_content]<h2>${boxTitle}</h2>[/#if]
+[#if statuses?has_content]
+    <ul>
+        [#compress]
+            [#list statuses as status]
+                <li>
+                    [#if status.retweet=true]
+                        RT ${status.retweetedStatus.user.screenName}: ${status.retweetedStatus.text}<br/>
+                        Retweeted at
+                        <a href="http://twitter.com/${status.retweetedStatus.user.screenName}/status/${status.retweetedStatus.id}" rel="external">
+                            <time datetime="${status.createdAt?string("yyyy-MM-dd'T'HH:mm:ss")}">${status.createdAt?string("d MMM H:mm")}</time>
+                        </a>
+                    [#else]${status.text}<br/>
+                        <a href="http://twitter.com/${status.user.screenName}/status/${status.id}" rel="external">
+                            <time datetime="${status.createdAt?string("yyyy-MM-dd'T'HH:mm:ss")}">${status.createdAt?string("d MMM H:mm")}</time>
+                        </a>
+                    [/#if]
+                </li>
+                [#if status_index=4][#break/][/#if]
+            [/#list]
+        [/#compress]
+    </ul>
+[#else]No tweets found
+[/#if]
 </section>

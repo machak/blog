@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.hippoecm.org/jsp/hst/core" prefix="hst" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib prefix="site" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="site" tagdir="/WEB-INF/tags" %>
 <%--
   * Copyright 2010 Jasha Joachimsthal
   *

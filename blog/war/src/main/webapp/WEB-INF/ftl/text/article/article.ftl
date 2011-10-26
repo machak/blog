@@ -20,10 +20,10 @@
     [#if document??]
         <h1>${document.title}</h1>
         [#if document.summary?has_content]<p>${document.summary}</p>[/#if]
-    [@hst.html hippohtml=document.html contentRewriter=contentrewriter/]
+        [@hst.html hippohtml=document.html contentRewriter=contentrewriter/]
     [/#if]
     </section>
 </article>
 [#if document??]
-[@hst.headContribution]<title>${document.rawTitle?xml} | ${labels['site.name']}</title>[/@hst.headContribution]
+    [@hst.headContribution]<title>${document.rawTitle?xml} | ${labels['site.name']}</title>[/@hst.headContribution]
 [/#if]

@@ -15,6 +15,9 @@
  */
 package org.onehippo.forge.blog.components;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -30,13 +33,10 @@ import org.onehippo.forge.blog.beans.BaseDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Simple search component. Excludes construction
- * @author Jasha Joachimsthal
  *
+ * @author Jasha Joachimsthal
  */
 public class Search extends BaseSiteComponent {
 
@@ -63,8 +63,8 @@ public class Search extends BaseSiteComponent {
                 log.trace("Unable to parse {} as Integer", pageStr);
             }
         }
-        
-        
+
+
         request.setAttribute(PAGEPARAM, page);
         try {
             List<HippoBean> excludes = new ArrayList<HippoBean>();
@@ -72,7 +72,7 @@ public class Search extends BaseSiteComponent {
             if (construction != null) {
                 excludes.add(construction);
             }
-            
+
             HstQuery hstQuery = getQueryManager().createQuery(getSiteContentBaseBean(request));
             hstQuery.excludeScopes(excludes);
             if (StringUtils.isNotBlank(query)) {

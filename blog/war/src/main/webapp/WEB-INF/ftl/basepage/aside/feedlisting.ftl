@@ -16,16 +16,16 @@
   * limitations under the License.
   --]
 [#if feed?has_content]
-  <section>
+<section>
     [#if boxTitle?has_content]<h2>${boxTitle}</h2>[/#if]
     <ul>
-      [#list feed.entries as entry]
-      <li>[#if entry.authors?has_content && entry.authors[0].name!='(author unknown)']${entry.authors[0].name}[/#if]
-        [#if showLinks == true]<a href="${entry.link}" rel="external">${entry.title}</a>
-        [#else]${entry.title}[/#if]
-      </li>
-    [#if entry_index=9][#break/][/#if]
-    [/#list]
-  </ul>
+        [#list feed.entries as entry]
+            <li>[#if entry.authors?has_content && entry.authors[0].name!='(author unknown)']${entry.authors[0].name}[/#if]
+                [#if showLinks == true]<a href="${entry.link}" rel="external">${entry.title}</a>
+                [#else]${entry.title}[/#if]
+            </li>
+            [#if entry_index=9][#break/][/#if]
+        [/#list]
+    </ul>
 </section>
 [/#if]

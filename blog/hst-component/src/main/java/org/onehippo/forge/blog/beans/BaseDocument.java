@@ -15,6 +15,14 @@
  */
 package org.onehippo.forge.blog.beans;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.jcr.RepositoryException;
+
 import org.apache.commons.lang.StringEscapeUtils;
 import org.hippoecm.hst.content.beans.ContentNodeBinder;
 import org.hippoecm.hst.content.beans.ContentNodeBindingException;
@@ -22,18 +30,11 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-import javax.jcr.RepositoryException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
 /**
  * <p>Annotated bean for {@link Node} of type {@link BeanConstants#DOCTYPE_BASEDOCUMENT}.</p>
  * <p>Acts as base bean for the current project</p>
- * @author Jasha Joachimsthal
  *
+ * @author Jasha Joachimsthal
  */
 @Node(jcrType = BeanConstants.DOCTYPE_BASEDOCUMENT)
 public class BaseDocument extends HippoDocument implements ContentNodeBinder {
@@ -49,6 +50,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
 
     /**
      * Utility method for the JSP to define the beantype
+     *
      * @return String of the bean type
      */
     public String getType() {
@@ -93,8 +95,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
     }
 
     /**
-     * 
-     * @return Date object for {@link #getCalendar()} or <code>null</code> 
+     * @return Date object for {@link #getCalendar()} or <code>null</code>
      */
     public Date getDate() {
         Calendar cal = getCalendar();
@@ -107,7 +108,8 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
 
     /**
      * Utility method that creates a String representation of the beans's Date
-     * @param date {@link Date}
+     *
+     * @param date         {@link Date}
      * @param formatString format String for {@link DateFormat}
      * @return String representation of the Date or <code>null</code> if <code>date</code> is <code>null</code>
      */
@@ -122,6 +124,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
 
     /**
      * Method for EL call to {@link #getDateString(Date, String)}
+     *
      * @return String that can be directly used in JSP for the date
      */
     public String getPrintableDate() {
@@ -130,6 +133,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
 
     /**
      * utility method that returns HTML Escaped value of the property
+     *
      * @param name name of the property
      * @return HTML Escaped value of the property
      */
@@ -147,6 +151,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
 
     /**
      * Adds {@link javax.jcr.Node} for HTML content
+     *
      * @param body String representation of HTML content
      * @throws RepositoryException if the HTML content can't be added
      */
@@ -162,7 +167,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
             node.setProperty(BeanConstants.PROP_SUMMARY, bean.getSummary());
 
             if (this.html == null) {
-              return true;
+                return true;
             }
 
             if (node.hasNode(HTML_NODEPATH)) {

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/blogjsp/include/include.jsp" %>
 <%--
   * Copyright 2010 Jasha Joachimsthal
@@ -17,10 +17,11 @@
   * limitations under the License.
 --%>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="UTF-8"/>
   <hst:headContributions categoryExcludes="css,jsExternal,jsInline"/>
@@ -30,30 +31,33 @@
 </head>
 <body>
 <div id="container">
-<hst:include ref="header"/>
-<div id="main">
-<hst:include ref="article"/>
-<hst:include ref="aside"/>
-</div>
-<hst:include ref="footer"/>
+  <hst:include ref="header"/>
+  <div id="main">
+    <hst:include ref="article"/>
+    <hst:include ref="aside"/>
+  </div>
+  <hst:include ref="footer"/>
 </div>
 <script src="<hst:link path="/js/libs/jquery-1.4.2.min.js"/>"></script>
 <hst:headContributions categoryIncludes="jsExternal"/>
 <hst:headContributions categoryIncludes="jsInline"/>
 <%-- Google Analytics goes here --%>
 <c:if test="${not empty labels['googleanalytics.account']}">
-  <script>if (window.location.hostname!="localhost") {
+  <script>if (window.location.hostname != "localhost") {
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '${labels['googleanalytics.account']}}']);
-    <c:if test="${not empty labels['googleanalytics.domain']}">
+  <c:if test="${not empty labels['googleanalytics.domain']}">
     _gaq.push(['_setDomainName', '${labels['googleanalytics.domain']}']);
-    </c:if>
+  </c:if>
     _gaq.push(['_trackPageview']);
 
     (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
     })();
   }</script>
 </c:if>

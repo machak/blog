@@ -25,8 +25,8 @@ import org.hippoecm.hst.core.component.HstResponse;
 
 /**
  * Renders the Archive for blogposts
- * @author Jasha Joachimsthal
  *
+ * @author Jasha Joachimsthal
  */
 public class AsideArchive extends BaseSiteComponent {
 

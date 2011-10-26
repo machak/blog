@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/blogjsp/include/include.jsp" %>
 <%--
   * Copyright 2010 Jasha Joachimsthal
@@ -19,9 +19,10 @@
   <h1>Search result</h1>
   <c:choose>
     <c:when test="${not empty searchfor and nrhits eq 0}">
-    <p>I'm sorry but I can't find any document that matches your question.</p>
+      <p>I'm sorry but I can't find any document that matches your question.</p>
     </c:when>
-    <c:when test="${not empty searchfor}"><p>You searched for "${searchfor}" and I found ${nrhits} documents</p></c:when>
+    <c:when test="${not empty searchfor}">
+      <p>You searched for "${searchfor}" and I found ${nrhits} documents</p></c:when>
     <c:when test="${nrhits > 0}"><p>I found ${nrhits} documents</p></c:when>
     <c:otherwise><p>I'm sorry, did you ask something?</p></c:otherwise>
   </c:choose>
@@ -30,13 +31,13 @@
       <section class="teaser">
 
         <c:choose>
-            <c:when test="${doc.type eq 'comment'}">
-              <hst:link hippobean="${doc.commentTo}" var="hstlink"/>
-              <c:set var="link" value="${hstlink}\#${doc.name}"/>
-            </c:when>
-            <c:otherwise>
-              <hst:link hippobean="${doc}" var="link"/>
-            </c:otherwise>
+          <c:when test="${doc.type eq 'comment'}">
+            <hst:link hippobean="${doc.commentTo}" var="hstlink"/>
+            <c:set var="link" value="${hstlink}\#${doc.name}"/>
+          </c:when>
+          <c:otherwise>
+            <hst:link hippobean="${doc}" var="link"/>
+          </c:otherwise>
         </c:choose>
         <a href="${link}">
           <site:calendar doc="${doc}"/>
@@ -45,21 +46,25 @@
       </section>
     </c:forEach>
   </c:if>
-  
+
   <c:if test="${pages > 1}">
-  
-  <ol class="paging">
-  <c:forEach begin="0" end="${pages - 1}" var="i">
-  <hst:renderURL var="pageURL">
-    <hst:param name="page" value="${i}"/>
-    <hst:param name="searchfor" value="${searchfor}"/>
-  </hst:renderURL>
-  <c:choose>
-    <c:when test="${i eq page}"><li>${i+1}</li></c:when>
-    <c:otherwise><li><a href="${pageURL}">${i+1}</a></li></c:otherwise>
-  </c:choose>
-  </c:forEach>
-  </ol>
+
+    <ol class="paging">
+      <c:forEach begin="0" end="${pages - 1}" var="i">
+        <hst:renderURL var="pageURL">
+          <hst:param name="page" value="${i}"/>
+          <hst:param name="searchfor" value="${searchfor}"/>
+        </hst:renderURL>
+        <c:choose>
+          <c:when test="${i eq page}">
+            <li>${i+1}</li>
+          </c:when>
+          <c:otherwise>
+            <li><a href="${pageURL}">${i+1}</a></li>
+          </c:otherwise>
+        </c:choose>
+      </c:forEach>
+    </ol>
   </c:if>
 </article>
 
@@ -67,5 +72,5 @@
   <title>Search result | ${labels['site.name']}</title>
 </hst:headContribution>
 <hst:headContribution>
-<meta name="robots" content="noindex, follow"/>
+  <meta name="robots" content="noindex, follow"/>
 </hst:headContribution>
