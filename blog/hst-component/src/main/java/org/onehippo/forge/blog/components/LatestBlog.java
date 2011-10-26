@@ -67,6 +67,7 @@ public class LatestBlog extends BaseSiteComponent {
             return null;
         }
         try {
+            @SuppressWarnings("unchecked")
             HstQuery hstQuery = getQueryManager().createQuery(blogsFolderBean, Blogpost.class);
             hstQuery.addOrderByDescending("blog:date");
             hstQuery.setLimit(1);

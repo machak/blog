@@ -17,6 +17,7 @@ package org.onehippo.forge.blog.beans;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.text.StrTokenizer;
@@ -26,8 +27,9 @@ import org.hippoecm.hst.utils.SimpleHtmlExtractor;
 
 @Node(jcrType = "blog:textdocument")
 public class TextDocument extends BaseDocument {
-    private static final String HTMLTAG = "\\<.*?\\>";
+    private static final String HTML_TAG = "\\<.*?\\>";
     private static final String PARAGRAPH = "p";
+    private static final Pattern HTML_TAG_PATTERN = Pattern.compile(HTML_TAG);
 
     /*
      * (non-Javadoc)
@@ -80,11 +82,11 @@ public class TextDocument extends BaseDocument {
                 String innerHTML = SimpleHtmlExtractor.getInnerHtml(hippoHtml.getContent(), PARAGRAPH, false);
                 if (innerHTML != null) {
                     StrTokenizer strTokenizer = new StrTokenizer(innerHTML, '\n');
-                    StringBuffer sb = new StringBuffer();
+                    StringBuilder sb = new StringBuilder();
                     for (String s : strTokenizer.getTokenArray()) {
                         sb.append(StringUtils.trimToEmpty(s)).append(' ');
                     }
-                    return sb.toString().replaceAll(HTMLTAG, StringUtils.EMPTY);
+                    return HTML_TAG_PATTERN.matcher(sb.toString()).replaceAll(StringUtils.EMPTY);
                 }
             }
         }

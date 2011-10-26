@@ -16,6 +16,7 @@
 package org.onehippo.forge.blog.components;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.lang.StringEscapeUtils;
@@ -48,7 +49,7 @@ public class Search extends BaseSiteComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
-        List<BaseDocument> documents = new ArrayList<BaseDocument>();
+        Collection<BaseDocument> documents = new ArrayList<BaseDocument>();
 
         String pageStr = request.getParameter(PAGEPARAM);
         String query = getPublicRequestParameter(request, SEARCHFOR_PARAM);
@@ -92,10 +93,10 @@ public class Search extends BaseSiteComponent {
 
             request.setAttribute("nrhits", beansSize > 0 ? beansSize : 0);
             request.setAttribute("pages", pages);
-            int results = 0;
             if (beansSize > page * PAGESIZE) {
                 beans.skip(page * PAGESIZE);
             }
+            int results = 0;
             while (beans.hasNext() && results < PAGESIZE) {
                 HippoBean bean = beans.next();
                 if (bean instanceof BaseDocument) {

@@ -18,6 +18,7 @@ package org.onehippo.forge.blog.components;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
@@ -46,6 +47,7 @@ public class BaseSiteComponent extends BaseHstComponent {
 
 
     final static List<Class<? extends HippoBean>> classes = new ArrayList<Class<? extends HippoBean>>();
+    private static final Pattern COMMA_PATTERN = Pattern.compile(",");
 
 
     static {
@@ -56,9 +58,6 @@ public class BaseSiteComponent extends BaseHstComponent {
         classes.add(CommentBean.class);
         classes.add(Property.class);
         classes.add(Properties.class);
-        /*classes.add(Section.class);
-        classes.add(Robotstxt.class);*/
-
     }
 
 
@@ -77,7 +76,7 @@ public class BaseSiteComponent extends BaseHstComponent {
     /**
      * Utility method to retrieve the configured label documents for a component
      *
-     * @param request {@link HstRequest}
+     * @param request {@link org.hippoecm.hst.core.component.HstRequest}
      */
     protected void setComponentLabels(HstRequest request) {
         final ComponentManager componentManager = this.getDefaultClientComponentManager();
@@ -92,7 +91,7 @@ public class BaseSiteComponent extends BaseHstComponent {
         Map<String, String> labels;
         String labelsName = getParameter("labelsName", request);
         if (StringUtils.isNotBlank(labelsName)) {
-            String[] split = labelsName.split(",");
+            String[] split = COMMA_PATTERN.split(labelsName);
             List<String> labelsPaths = new ArrayList<String>(split.length);
             for (String s : split) {
                 labelsPaths.add(s.trim());

@@ -217,7 +217,7 @@ public class FeedCreator extends BaseSiteComponent {
     private void handleEntries(Collection<SyndEntry> entries, @SuppressWarnings("rawtypes") Iterator beans, HstRequest request, HstResponse response, final String author) {
         int results = 0;
 
-        while (beans.hasNext() && results < BlogListing.PAGESIZE) {
+        while (beans.hasNext() && results < BlogListing.PAGE_SIZE) {
             Blogpost blogpost = (Blogpost) beans.next();
             SyndEntry syndEntry = createFeedEntryFromBlogpost(request, response, author, blogpost);
             if (syndEntry != null) {
@@ -292,7 +292,7 @@ public class FeedCreator extends BaseSiteComponent {
      * @return String of the HTML content, {@code null} if absent or empty
      */
     private String getEntryDescription(Blogpost blogpost, HstRequest request, HstResponse response) {
-        StringBuffer fullContent = new StringBuffer(XHTML_TAG_DIV_START);
+        StringBuilder fullContent = new StringBuilder(XHTML_TAG_DIV_START);
         if (StringUtils.isNotBlank(blogpost.getSummary())) {
             fullContent.append(HTML_TAG_P_START);
             fullContent.append(StringEscapeUtils.escapeXml(blogpost.getSummary()));

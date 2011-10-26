@@ -3,6 +3,9 @@ package org.onehippo.forge.blog.components.overview;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -27,8 +30,9 @@ import org.slf4j.LoggerFactory;
  * @author Jasha Joachimsthal
  */
 public abstract class AbstractListing extends BaseSiteComponent {
-    public static final int PAGESIZE = 10;
     public static final Logger log = LoggerFactory.getLogger(AbstractListing.class);
+
+    public static final int PAGE_SIZE = 10;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
@@ -38,7 +42,7 @@ public abstract class AbstractListing extends BaseSiteComponent {
         HippoBean contentBean = getContentBean(request);
         if (!(contentBean instanceof HippoFolderBean)) {
             log.warn("Parameter hst:relativecontentpath does not reference a folder");
-            response.setStatus(HstResponse.SC_NOT_FOUND);
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
             // TODO: redirect to 404?
         }
@@ -73,7 +77,7 @@ public abstract class AbstractListing extends BaseSiteComponent {
      * @param request current {@link org.hippoecm.hst.core.component.HstRequest}
      * @return int current page number withing a list, offset 0
      */
-    private int getPageNumber(HstRequest request) {
+    private int getPageNumber(ServletRequest request) {
         String pageStr = request.getParameter("page");
 
         int page = 0;
@@ -90,6 +94,7 @@ public abstract class AbstractListing extends BaseSiteComponent {
 
     private HippoBeanIterator getQueryResultAsIterator(HippoBean contentBean, Class<? extends BaseDocument> beanClass) {
         try {
+            @SuppressWarnings("unchecked")
             HstQuery hstQuery = getQueryManager().createQuery(contentBean, beanClass);
             hstQuery.addOrderByDescending(BeanConstants.PROP_DATE);
             HstQueryResult queryResult = hstQuery.execute();
@@ -109,8 +114,7 @@ public abstract class AbstractListing extends BaseSiteComponent {
      * @param beanClass the Class of documents that is used as query filter
      * @return {@link java.util.List} of documents or empty List if no documents are found
      */
-    protected List<HippoBean> getDocumentList(HstRequest request, int page,
-                                              Class<? extends BaseDocument> beanClass) {
+    protected List<HippoBean> getDocumentList(HstRequest request, int page, Class<? extends BaseDocument> beanClass) {
         List<HippoBean> documents = new ArrayList<HippoBean>();
 
         HippoBeanIterator beans = getQueryResultAsIterator(getContentBean(request), beanClass);
@@ -120,15 +124,15 @@ public abstract class AbstractListing extends BaseSiteComponent {
 
         long beansSize = beans.getSize();
         // calculates the total number of pages
-        long pages = beans.getSize() % PAGESIZE > 0L ? beansSize / PAGESIZE + 1L : beansSize / PAGESIZE;
+        long pages = beans.getSize() % PAGE_SIZE > 0L ? beansSize / PAGE_SIZE + 1L : beansSize / PAGE_SIZE;
 
         request.setAttribute("pages", pages);
-        if (beansSize > page * ((long) PAGESIZE)) {
-            beans.skip(page * PAGESIZE);
+        if (beansSize > page * ((long) PAGE_SIZE)) {
+            beans.skip(page * PAGE_SIZE);
         }
 
         int results = 0;
-        while (beans.hasNext() && results < PAGESIZE) {
+        while (beans.hasNext() && results < PAGE_SIZE) {
             HippoBean bean = beans.next();
             if (bean != null) { // document may have been deleted after searching
                 documents.add(bean);

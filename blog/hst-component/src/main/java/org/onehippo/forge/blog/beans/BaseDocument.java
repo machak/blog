@@ -29,6 +29,8 @@ import org.hippoecm.hst.content.beans.ContentNodeBindingException;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>Annotated bean for {@link Node} of type {@link BeanConstants#DOCTYPE_BASEDOCUMENT}.</p>
@@ -39,9 +41,10 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 @Node(jcrType = BeanConstants.DOCTYPE_BASEDOCUMENT)
 public class BaseDocument extends HippoDocument implements ContentNodeBinder {
 
+    private static Logger log = LoggerFactory.getLogger(BaseDocument.class);
     private static final String BASEDOCUMENT = "basedocument";
-    protected static final String HTML_NODEPATH = BeanConstants.COMPOUND_BODY;
-    protected static final String PRINTDATE = "d MMMM yyyy HH:mm";
+    protected static final String HTML_NODE_PATH = BeanConstants.COMPOUND_BODY;
+    protected static final String PRINT_DATE = "d MMMM yyyy HH:mm";
 
     private String title;
     private String summary;
@@ -128,7 +131,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
      * @return String that can be directly used in JSP for the date
      */
     public String getPrintableDate() {
-        return getDateString(getDate(), PRINTDATE);
+        return getDateString(getDate(), PRINT_DATE);
     }
 
     /**
@@ -142,7 +145,7 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
     }
 
     public HippoHtml getHtml() {
-        return getHippoHtml(HTML_NODEPATH);
+        return getHippoHtml(HTML_NODE_PATH);
     }
 
     public void setHtml(String html) throws ContentNodeBindingException {
@@ -156,34 +159,32 @@ public class BaseDocument extends HippoDocument implements ContentNodeBinder {
      * @throws RepositoryException if the HTML content can't be added
      */
     public void addHtml(String body) throws RepositoryException {
-        javax.jcr.Node n = this.getNode().addNode(HTML_NODEPATH, "hippostd:html");
+        javax.jcr.Node n = this.getNode().addNode(HTML_NODE_PATH, "hippostd:html");
         n.setProperty("hippostd:content", body);
     }
 
     public boolean bind(Object content, javax.jcr.Node node) throws ContentNodeBindingException {
+        BaseDocument bean = (BaseDocument) content;
         try {
-            BaseDocument bean = (BaseDocument) content;
             node.setProperty(BeanConstants.PROP_TITLE, bean.getTitle());
             node.setProperty(BeanConstants.PROP_SUMMARY, bean.getSummary());
 
             if (this.html == null) {
                 return true;
             }
-
-            if (node.hasNode(HTML_NODEPATH)) {
-                javax.jcr.Node htmlNode = node.getNode(HTML_NODEPATH);
+            if (node.hasNode(HTML_NODE_PATH)) {
+                javax.jcr.Node htmlNode = node.getNode(HTML_NODE_PATH);
                 if (!htmlNode.isNodeType("hippostd:html")) {
-                    throw new ContentNodeBindingException("Expected html node of type 'hippostd:html' but was '"
-                            + htmlNode.getPrimaryNodeType().getName() + "'");
+                    throw new ContentNodeBindingException("Expected html node of type 'hippostd:html' but was '" + htmlNode.getPrimaryNodeType().getName() + '\'');
                 }
                 htmlNode.setProperty("hippostd:content", html);
             } else {
-                javax.jcr.Node htmlNode = node.addNode(HTML_NODEPATH, "hippostd:html");
+                javax.jcr.Node htmlNode = node.addNode(HTML_NODE_PATH, "hippostd:html");
                 htmlNode.setProperty("hippostd:content", html);
             }
 
-        } catch (Exception e) {
-            throw new ContentNodeBindingException(e);
+        } catch (RepositoryException e) {
+            log.error("e {}", e);
         }
 
         return true;

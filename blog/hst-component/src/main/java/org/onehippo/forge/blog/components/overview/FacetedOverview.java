@@ -6,6 +6,7 @@ import java.util.List;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocumentIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFacetChildNavigationBean;
+import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.forge.blog.beans.Blogpost;
 import org.slf4j.Logger;
@@ -29,13 +30,13 @@ public class FacetedOverview extends AbstractListing {
         List<HippoBean> documents = new ArrayList<HippoBean>();
         HippoBean n = getContentBean(request);
         if (n instanceof HippoFacetChildNavigationBean) {
-            HippoFacetChildNavigationBean facetNav = (HippoFacetChildNavigationBean) n;
+            HippoFacetNavigationBean facetNav = (HippoFacetNavigationBean) n;
             HippoDocumentIterator<Blogpost> it = facetNav.getResultSet().getDocumentIterator(Blogpost.class);
             long pages = facetNav.getResultSet().getCount() / PAGESIZE;
             pages = facetNav.getResultSet().getCount() % PAGESIZE > 0L ? pages + 1L : pages;
 
             if (log.isDebugEnabled()) {
-                log.debug("Resultset of {}, pages {}", facetNav.getResultSet().getCount(), pages);
+                log.debug("Result set of {}, pages {}", facetNav.getResultSet().getCount(), pages);
             }
             request.setAttribute("pages", pages);
 
@@ -48,6 +49,6 @@ public class FacetedOverview extends AbstractListing {
 
         }
 
-        return documents;  //To change body of implemented methods use File | Settings | File Templates.
+        return documents;
     }
 }
