@@ -16,6 +16,17 @@
   <dependencies>
 
     <dependency>
+      <groupId>org.onehippo.forge.blog</groupId>
+      <artifactId>blog-plugin</artifactId>
+      <version>${blog.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.forge.blog</groupId>
+      <artifactId>blog-hst-component</artifactId>
+      <version>${blog.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <scope>runtime</scope>

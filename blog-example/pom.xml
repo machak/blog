@@ -58,6 +58,8 @@
 
   <properties>
 
+    <blog.version>1.01.01-SNAPSHOT</blog.version>
+
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
 
@@ -92,6 +94,25 @@
 
   <dependencyManagement>
     <dependencies>
+
+      <!-- BLOG DEPENDENCIES -->
+
+      <dependency>
+        <groupId>org.onehippo.forge.blog</groupId>
+        <artifactId>blog-plugin</artifactId>
+        <version>${blog.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.onehippo.forge.blog</groupId>
+        <artifactId>blog-hst-component</artifactId>
+        <version>${blog.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.onehippo.forge.blog</groupId>
+        <artifactId>blog-war</artifactId>
+        <version>${blog.version}</version>
+        <type>war</type>
+      </dependency>
 
 
     
