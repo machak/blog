@@ -1,12 +1,11 @@
-
 package org.onehippo.forge.example.components;
 
-import org.onehippo.forge.example.componentsinfo.SearchInfo;
 import org.hippoecm.hst.configuration.components.ParametersInfo;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.onehippo.forge.example.componentsinfo.SearchInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,14 +18,14 @@ public class Search extends BaseComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
 
-       SearchInfo info = getParametersInfo(request);
-       HippoBean scope = getSiteContentBaseBean(request);
+        SearchInfo info = getParametersInfo(request);
+        HippoBean scope = getSiteContentBaseBean(request);
 
-       String query = getPublicRequestParameter(request, "query");
-       if(query == null) {
-           // test namespaced query parameter
-           query = request.getParameter("query");
-       }
-       createAndExecuteSearch(request, info, scope, query);
+        String query = getPublicRequestParameter(request, "query");
+        if (query == null) {
+            // test namespaced query parameter
+            query = request.getParameter("query");
+        }
+        createAndExecuteSearch(request, info, scope, query);
     }
 }

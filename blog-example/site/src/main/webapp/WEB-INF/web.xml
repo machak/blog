@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-    version="2.5">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
   <display-name>Hippo Site Toolkit Container Web Application</display-name>
 
   <context-param>
     <param-name>webAppRootKey</param-name>
     <param-value>site.webapp.root</param-value>
   </context-param>
-  
-    <!-- I18N  -->
+
+  <!-- I18N  -->
   <context-param>
     <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
     <param-value>messages</param-value>
   </context-param>
-  
+
   <!--
     HST-2 Content Beans Annotation Configuration. You can configure it
     with either xml or classes location filter. For example, if the
@@ -37,12 +37,12 @@
     <param-name>hst-beans-annotated-classes</param-name>
     <param-value>classpath*:org/onehippo/forge/example/beans/**/*.class</param-value>
   </context-param>
-  
+
   <filter>
     <filter-name>XSSUrlFilter</filter-name>
     <filter-class>org.hippoecm.hst.container.XSSUrlFilter</filter-class>
   </filter>
-  
+
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -55,7 +55,7 @@
       <param-value>true</param-value>
     </init-param>
   </filter>
-  
+
   <filter>
     <filter-name>HstFilter</filter-name>
     <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
@@ -82,13 +82,13 @@
       </init-param>
     -->
   </filter>
-  
+
   <filter-mapping>
     <filter-name>XSSUrlFilter</filter-name>
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
-  
+
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -209,7 +209,7 @@
     <description>Default role of Hippo Repository</description>
     <role-name>everybody</role-name>
   </security-role>
- 
+
   <error-page>
     <error-code>403</error-code>
     <location>/WEB-INF/jsp/errorpages/ErrorPage403.jsp</location>

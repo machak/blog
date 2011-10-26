@@ -27,7 +27,7 @@
       </sv:property>
       <sv:node sv:name="leftmenu">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
-           <sv:value>hst:component</sv:value>
+          <sv:value>hst:component</sv:value>
         </sv:property>
         <sv:property sv:name="hst:referencecomponent" sv:type="String">
           <sv:value>hst:components/leftmenu</sv:value>
@@ -43,7 +43,7 @@
       </sv:node>
     </sv:node>
   </sv:node>
-  
+
   <sv:node sv:name="home">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:component</sv:value>
@@ -68,18 +68,18 @@
       </sv:node>
       <sv:node sv:name="lists">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
-            <sv:value>hst:containercomponent</sv:value>
+          <sv:value>hst:containercomponent</sv:value>
         </sv:property>
         <sv:property sv:name="hst:xtype" sv:type="String">
-            <sv:value>HST.UnorderedList</sv:value>
+          <sv:value>HST.UnorderedList</sv:value>
         </sv:property>
         <sv:property sv:name="hst:componentclassname" sv:type="String">
-            <sv:value>org.hippoecm.hst.pagecomposer.builtin.components.StandardContainerComponent</sv:value>
+          <sv:value>org.hippoecm.hst.pagecomposer.builtin.components.StandardContainerComponent</sv:value>
         </sv:property>
-       </sv:node>
+      </sv:node>
     </sv:node>
   </sv:node>
-  
+
   <sv:node sv:name="textpage">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:component</sv:value>
@@ -87,7 +87,7 @@
     <sv:property sv:name="hst:referencecomponent" sv:type="String">
       <sv:value>hst:pages/standard</sv:value>
     </sv:property>
-   <sv:node sv:name="main">
+    <sv:node sv:name="main">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>hst:component</sv:value>
       </sv:property>
@@ -95,13 +95,13 @@
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
           <sv:value>hst:component</sv:value>
         </sv:property>
-         <sv:property sv:name="hst:referencecomponent" sv:type="String">
+        <sv:property sv:name="hst:referencecomponent" sv:type="String">
           <sv:value>hst:components/content</sv:value>
         </sv:property>
       </sv:node>
     </sv:node>
   </sv:node>
-  
+
   <sv:node sv:name="newspage">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:component</sv:value>
@@ -126,8 +126,8 @@
       </sv:node>
     </sv:node>
   </sv:node>
-  
-  
+
+
   <sv:node sv:name="overview">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:component</sv:value>
@@ -152,7 +152,7 @@
       </sv:node>
     </sv:node>
   </sv:node>
-  
+
   <sv:node sv:name="newsoverview">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:component</sv:value>
@@ -161,7 +161,7 @@
       <sv:value>hst:pages/overview</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="pagenotfound">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:component</sv:value>
@@ -170,5 +170,5 @@
       <sv:value>hst:pages/standard</sv:value>
     </sv:property>
   </sv:node>
-  
+
 </sv:node>

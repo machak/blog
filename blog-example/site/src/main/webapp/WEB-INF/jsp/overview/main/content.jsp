@@ -1,4 +1,3 @@
-
 <%@ page language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
@@ -10,7 +9,7 @@
   <hst:element var="headTitle" name="title">
     <c:out value="${info.title}"/>
   </hst:element>
-  <hst:headContribution keyHint="headTitle" element="${headTitle}" />
+  <hst:headContribution keyHint="headTitle" element="${headTitle}"/>
 </c:if>
 
 
@@ -22,7 +21,7 @@
       <a href="${link}">${item.title}</a>
       <div>
         <c:if test="${hst:isReadable(item, 'date')}">
-        <p><fmt:formatDate value="${item.date.time}" type="Date" pattern="MMMM d, yyyy h:mm a" /></p>
+          <p><fmt:formatDate value="${item.date.time}" type="Date" pattern="MMMM d, yyyy h:mm a"/></p>
         </c:if>
         <p>${item.summary}</p>
       </div>
@@ -32,15 +31,15 @@
 <c:if test="${fn:length(pages) gt 0}">
   <ul id="paging-nav">
     <c:forEach var="page" items="${pages}">
-      <c:set var="active" value="" />
+      <c:set var="active" value=""/>
       <c:choose>
         <c:when test="${crPage == page}">
-           <li>${page}</li>
+          <li>${page}</li>
         </c:when>
         <c:otherwise>
           <hst:renderURL var="pagelink">
-            <hst:param name="page" value="${page}" />
-            <hst:param name="query" value="${query}" />
+            <hst:param name="page" value="${page}"/>
+            <hst:param name="query" value="${query}"/>
           </hst:renderURL>
           <li><a href="${pagelink}" title="${page}">${page}</a></li>
         </c:otherwise>

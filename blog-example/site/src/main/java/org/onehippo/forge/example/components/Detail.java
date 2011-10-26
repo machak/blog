@@ -1,4 +1,3 @@
-
 package org.onehippo.forge.example.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
@@ -16,13 +15,13 @@ public class Detail extends BaseHstComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
 
-        HippoBean  n = getContentBean(request);
-        
-        if(n == null) {
+        HippoBean n = getContentBean(request);
+
+        if (n == null) {
             return;
         }
-        request.setAttribute("document",n);
-        
+        request.setAttribute("document", n);
+
     }
 
 }

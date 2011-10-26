@@ -57,7 +57,7 @@
       <sv:value>jsp/standard/main/content.jsp</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="standard.main.list">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
@@ -66,7 +66,7 @@
       <sv:value>jsp/standard/main/list.jsp</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="home.main.content">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
@@ -75,7 +75,7 @@
       <sv:value>jsp/home/main/content.jsp</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="news.main.content">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
@@ -84,7 +84,7 @@
       <sv:value>jsp/news/main/content.jsp</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="overview.main.content">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
@@ -93,5 +93,5 @@
       <sv:value>jsp/overview/main/content.jsp</sv:value>
     </sv:property>
   </sv:node>
-  
+
 </sv:node>

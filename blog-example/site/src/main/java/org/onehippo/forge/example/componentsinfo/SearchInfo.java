@@ -1,4 +1,3 @@
-
 package org.onehippo.forge.example.componentsinfo;
 
 

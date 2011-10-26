@@ -20,8 +20,9 @@
     <param-name>repository-config</param-name>
     <param-value>repository.xml</param-value>
     <description>The location of the repository configuration file. Unless the location
-    starts with file://, the location is retrieved from within the application package as
-    resource.</description>
+      starts with file://, the location is retrieved from within the application package as
+      resource.
+    </description>
   </context-param>
 
   <!--Remap resources as anti-cache-->
@@ -101,7 +102,7 @@
     <filter-name>Console</filter-name>
     <url-pattern>/console/*</url-pattern>
   </filter-mapping>
-  
+
   <listener>
     <listener-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginListener</listener-class>
   </listener>

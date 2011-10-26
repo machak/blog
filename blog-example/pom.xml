@@ -73,15 +73,15 @@
 
     <freemarker.version>2.3.18</freemarker.version>
     <lib.spring-js.version>2.0.5.RELEASE</lib.spring-js.version>
-    
+
     <!-- uncomment to enable automatic export 
-    <hippoecm.export.dir>${project.basedir}/content/src/main/resources</hippoecm.export.dir>
-     -->
-     
+   <hippoecm.export.dir>${project.basedir}/content/src/main/resources</hippoecm.export.dir>
+    -->
+
     <filesync.override>false</filesync.override>
-     
+
     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
-     
+
   </properties>
 
   <repositories>
@@ -115,7 +115,6 @@
       </dependency>
 
 
-    
       <!-- other predefined runtime scope versioned dependencies -->
       <dependency>
         <groupId>javax.servlet</groupId>
@@ -131,7 +130,7 @@
         <scope>runtime</scope>
       </dependency>
 
-     <!-- other predefined compile scope versioned dependencies -->
+      <!-- other predefined compile scope versioned dependencies -->
       <dependency>
         <groupId>commons-lang</groupId>
         <artifactId>commons-lang</artifactId>
@@ -149,7 +148,7 @@
         <artifactId>org.springframework.js</artifactId>
         <version>${lib.spring-js.version}</version>
       </dependency>
-      
+
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
@@ -159,7 +158,7 @@
 
     </dependencies>
   </dependencyManagement>
-  
+
   <build>
     <defaultGoal>package</defaultGoal>
     <pluginManagement>
@@ -202,7 +201,7 @@
 
     <profile>
       <id>cargo.run</id>
-     <build>
+      <build>
         <plugins>
           <plugin>
             <groupId>org.codehaus.cargo</groupId>
@@ -238,7 +237,7 @@
                   <log4j.configuration>file:${project.basedir}/conf/log4j-dev.xml</log4j.configuration>
                   <rebel.log4j-plugin>true</rebel.log4j-plugin>
                 </systemProperties>
-             </container>
+              </container>
             </configuration>
           </plugin>
         </plugins>
@@ -246,25 +245,25 @@
     </profile>
 
     <profile>
-     <id>dist</id>
-     <dependencies>
-       <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-log4j12</artifactId>
-         <scope>provided</scope>
-       </dependency>
-       <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>jcl-over-slf4j</artifactId>
-         <scope>provided</scope>
-       </dependency>
-       <dependency>
-         <groupId>log4j</groupId>
-         <artifactId>log4j</artifactId>
-         <scope>provided</scope>
-       </dependency>
-     </dependencies>
-     <build>
+      <id>dist</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+      <build>
         <defaultGoal>validate</defaultGoal>
         <plugins>
           <plugin>

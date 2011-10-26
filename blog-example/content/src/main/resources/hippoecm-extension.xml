@@ -20,7 +20,7 @@
       <sv:value>namespaces/blog-example.cnd</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -35,7 +35,7 @@
       <sv:value>/hippo:namespaces</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-basedocument-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -50,7 +50,7 @@
       <sv:value>/hippo:namespaces/blogexample</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-textdocument-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -65,7 +65,7 @@
       <sv:value>/hippo:namespaces/blogexample</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-newsdocument-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -110,7 +110,7 @@
       <sv:value>/hst:hst</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-hst-configurations">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -125,7 +125,7 @@
       <sv:value>/hst:hst</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-sitemap">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -140,7 +140,7 @@
       <sv:value>/hst:hst/hst:configurations/blogexample</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-sitemenus">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -155,7 +155,7 @@
       <sv:value>/hst:hst/hst:configurations/blogexample</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-configuration-pages">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -170,7 +170,7 @@
       <sv:value>/hst:hst/hst:configurations/blogexample</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <sv:node sv:name="blogexample-configuration-components">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -244,9 +244,9 @@
       <sv:value>content/documents/blog-example/common.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-     <sv:value>/content/documents/blogexample</sv:value>
+      <sv:value>/content/documents/blogexample</sv:value>
     </sv:property>
-   </sv:node>
+  </sv:node>
 
 
   <sv:node sv:name="blogexample-news">
@@ -260,14 +260,14 @@
       <sv:value>content/documents/blog-example/news.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-     <sv:value>/content/documents/blogexample</sv:value>
+      <sv:value>/content/documents/blogexample</sv:value>
     </sv:property>
-   </sv:node>
+  </sv:node>
 
   <!-- /Content -->
-  
+
   <!-- Gallery -->
-  
+
   <sv:node sv:name="blogexample-gallery">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -279,10 +279,10 @@
       <sv:value>content/gallery/blog-example.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-     <sv:value>/content/gallery</sv:value>
+      <sv:value>/content/gallery</sv:value>
     </sv:property>
-   </sv:node>
-  
+  </sv:node>
+
   <!-- /Gallery -->
 
   <sv:node sv:name="blogexample-hosts">
@@ -299,7 +299,7 @@
       <sv:value>/hst:hst</sv:value>
     </sv:property>
   </sv:node>
-  
+
   <!-- CMS -->
 
   <sv:node sv:name="blogexample-cms-services-localhost">

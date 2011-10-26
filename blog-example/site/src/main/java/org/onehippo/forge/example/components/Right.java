@@ -1,4 +1,3 @@
-
 package org.onehippo.forge.example.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
@@ -10,7 +9,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Right extends BaseHstComponent{
+public class Right extends BaseHstComponent {
 
     public static final Logger log = LoggerFactory.getLogger(Right.class);
 
@@ -19,9 +18,9 @@ public class Right extends BaseHstComponent{
 
         HippoBean n = this.getContentBean(request);
 
-        request.setAttribute("folders", ((HippoFolderBean)n).getFolders());
+        request.setAttribute("folders", ((HippoFolderBean) n).getFolders());
         request.setAttribute("curnode", n);
-        
+
     }
 
 

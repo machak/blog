@@ -19,15 +19,15 @@
     <sv:value>new-document</sv:value>
   </sv:property>
   <sv:node sv:name="hippo:translation">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>hippo:translation</sv:value>
-      </sv:property>
-      <sv:property sv:name="hippo:language" sv:type="String">
-        <sv:value/>
-      </sv:property>
-      <sv:property sv:name="hippo:message" sv:type="String">
-        <sv:value>Common</sv:value>
-      </sv:property>
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:translation</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:language" sv:type="String">
+      <sv:value/>
+    </sv:property>
+    <sv:property sv:name="hippo:message" sv:type="String">
+      <sv:value>Common</sv:value>
+    </sv:property>
   </sv:node>
   <sv:node sv:name="homepage">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -57,7 +57,7 @@
         <sv:value>hippotranslation:translated</sv:value>
       </sv:property>
       <sv:property sv:name="hippotranslation:locale" sv:type="String">
-          <sv:value>en</sv:value>
+        <sv:value>en</sv:value>
       </sv:property>
       <sv:property sv:name="hippotranslation:id" sv:type="String">
         <sv:value>blogexample-common-homepage-id</sv:value>
@@ -98,7 +98,7 @@
           <sv:value>hippostd:html</sv:value>
         </sv:property>
         <sv:property sv:name="hippostd:content" sv:type="String">
-          <sv:value>&lt;p&gt;Now go ahead and build your own website!&lt;/p&gt; 
+          <sv:value>&lt;p&gt;Now go ahead and build your own website!&lt;/p&gt;
           </sv:value>
         </sv:property>
       </sv:node>
@@ -113,16 +113,16 @@
       <sv:value>hippo:translated</sv:value>
     </sv:property>
     <sv:node sv:name="hippo:translation">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:translation</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:language" sv:type="String">
-      <sv:value/>
-    </sv:property>
-    <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>About Us</sv:value>
-    </sv:property>
-  </sv:node>
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>hippo:translation</sv:value>
+      </sv:property>
+      <sv:property sv:name="hippo:language" sv:type="String">
+        <sv:value/>
+      </sv:property>
+      <sv:property sv:name="hippo:message" sv:type="String">
+        <sv:value>About Us</sv:value>
+      </sv:property>
+    </sv:node>
     <sv:node sv:name="about-us">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>blogexample:textdocument</sv:value>
@@ -132,7 +132,7 @@
         <sv:value>hippotranslation:translated</sv:value>
       </sv:property>
       <sv:property sv:name="hippotranslation:locale" sv:type="String">
-          <sv:value>en</sv:value>
+        <sv:value>en</sv:value>
       </sv:property>
       <sv:property sv:name="hippotranslation:id" sv:type="String">
         <sv:value>blogexample-common-about-us-id</sv:value>
