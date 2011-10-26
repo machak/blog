@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  * Copyright 2010-2011 Hippo
+  *
+  * Licensed under the Apache License, Version 2.0 (the  "License");
+  * you may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at
+  *
+  * http://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+-->
+<sv:node sv:name="facets" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>hippofacnav:facetnavigation</sv:value>
+  </sv:property>
+  <sv:property sv:name="hippo:docbase" sv:type="String">
+    <sv:value>5edba458-8012-489f-bb96-b05d17a0cf50</sv:value>
+  </sv:property>
+  <sv:property sv:name="hippofacnav:facetnodenames" sv:type="String">
+    <sv:value>year${sortby:'facetvalue', sortorder:'descending'}</sv:value>
+    <sv:value>month${sortby:'facetvalue', sortorder:'descending', after:'year'}</sv:value>
+    <sv:value>tag${sortby:'count', sortorder:'descending', limit:10}</sv:value>
+  </sv:property>
+  <sv:property sv:name="hippofacnav:facets" sv:type="String">
+    <sv:value>blog:date$year</sv:value>
+    <sv:value>blog:date$month</sv:value>
+    <sv:value>hippostd:tags</sv:value>
+  </sv:property>
+  <sv:property sv:name="hippofacnav:limit" sv:type="Long">
+    <sv:value>100</sv:value>
+  </sv:property>
+  <sv:property sv:name="hippofacnav:sortby" sv:type="String">
+    <sv:value>blog:date</sv:value>
+  </sv:property>
+  <sv:property sv:name="hippofacnav:sortorder" sv:type="String">
+    <sv:value>descending</sv:value>
+  </sv:property>
+</sv:node>

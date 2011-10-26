@@ -1,0 +1,10 @@
+<'blog demo'='http://www.onehippo.org/blog demo/nt/1.0'>
+<'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.2'>
+<'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
+<'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
+
+[blog demo:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document orderable
+
+[blog demo:textdocument] > blog demo:basedocument, hippostd:relaxed
+
+[blog demo:newsdocument] > blog demo:basedocument, hippostd:relaxed

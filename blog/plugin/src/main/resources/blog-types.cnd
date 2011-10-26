@@ -1,0 +1,24 @@
+<'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.1'>
+<'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
+<'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
+<'blog'='http://forge.onehippo.org/gf/project/blog/1.0'>
+
+[blog:commentlink] > hippo:facetselect
+
+[blog:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
+
+[blog:textdocument] > blog:basedocument, hippostd:taggable
+- blog:summary (string)
+- blog:title (string)
+- blog:date (date)
++ blog:body (hippostd:html)
+
+[blog:blogpost] > blog:textdocument
+- blog:bloggerid (string)
+
+[blog:comment] > blog:textdocument
+- blog:name (string)
+- blog:email (string)
+- blog:website (string)
+- blog:bloggeridref (string)
++ blog:commentlink (blog:commentlink)
