@@ -17,6 +17,7 @@ package org.onehippo.forge.blog.components;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -46,6 +47,7 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.onehippo.forge.blog.beans.BeanConstants;
 import org.onehippo.forge.blog.beans.Blogpost;
@@ -188,18 +190,18 @@ public class FeedCreator extends BaseSiteComponent {
                                       ResolvedSiteMapItem currentSiteMapItem) {
     final HstLink feedLink;
     String preferredPath = getParameter(PARAM_PREFERRED_PATH, request);
-    if (StringUtils.isBlank(preferredPath)) {
-      feedLink = request.getRequestContext().getHstLinkCreator()
-              .createCanonical(hippoBean.getNode(), currentSiteMapItem);
+      final HstRequestContext requestContext = request.getRequestContext();
+      if (StringUtils.isBlank(preferredPath)) {
+      feedLink = requestContext.getHstLinkCreator().createCanonical(hippoBean.getNode(), requestContext);
     } else {
-      ResolvedSiteMapItem preferredItem = request.getRequestContext().getSiteMapMatcher()
-              .match(preferredPath, request.getRequestContext().getResolvedMount());
+      ResolvedSiteMapItem preferredItem = requestContext.getSiteMapMatcher()
+              .match(preferredPath, requestContext.getResolvedMount());
 
-      feedLink = request.getRequestContext().getHstLinkCreator()
+      feedLink = requestContext.getHstLinkCreator()
               .createCanonical(hippoBean.getNode(), currentSiteMapItem, preferredItem.getHstSiteMapItem());
     }
-    feed.setLink(feedLink.toUrlForm(request, response, true));
-    feed.setUri(feedLink.toUrlForm(request, response, true));
+    feed.setLink(feedLink.toUrlForm(requestContext, true));
+    feed.setUri(feedLink.toUrlForm(requestContext, true));
   }
 
   /**
@@ -212,14 +214,12 @@ public class FeedCreator extends BaseSiteComponent {
    * @param response {@link HstResponse}
    * @param author   {@link String} with the name of the blog author
    */
-  private void handleEntries(List<SyndEntry> entries, @SuppressWarnings("rawtypes") Iterator beans,
-                             HstRequest request, HstResponse response, final String author) {
+  private void handleEntries(Collection<SyndEntry> entries, @SuppressWarnings("rawtypes") Iterator beans, HstRequest request, HstResponse response, final String author) {
     int results = 0;
 
-    Blogpost blogpost;
-    while (beans.hasNext() && results < BlogListing.PAGESIZE) {
-      blogpost = (Blogpost) beans.next();
-      SyndEntry syndEntry = createFeedEntryFromBlogpost(request, response, author, blogpost);
+      while (beans.hasNext() && results < BlogListing.PAGESIZE) {
+          Blogpost blogpost = (Blogpost) beans.next();
+          SyndEntry syndEntry = createFeedEntryFromBlogpost(request, response, author, blogpost);
       if (syndEntry != null) {
         entries.add(syndEntry);
         results++;
@@ -246,11 +246,12 @@ public class FeedCreator extends BaseSiteComponent {
     SyndEntry entry = new SyndEntryImpl();
 
     entry.setTitle(blogpost.getRawTitle());
-    final HstLink link = request.getRequestContext().getHstLinkCreator()
-            .create(blogpost, request.getRequestContext());
-    entry.setLink(link.toUrlForm(request, response, true));
+      final HstRequestContext requestContext = request.getRequestContext();
+      final HstLink link = requestContext.getHstLinkCreator()
+            .create(blogpost, requestContext);
+    entry.setLink(link.toUrlForm(requestContext, true));
     // blogger id's are from the migrated Blogger.com Blogposts. The URI is maintained so external sources don't see them as new.
-    entry.setUri(StringUtils.isBlank(blogpost.getBloggerId()) ? link.toUrlForm(request, response, true) : blogpost
+    entry.setUri(StringUtils.isBlank(blogpost.getBloggerId()) ? link.toUrlForm(requestContext, true) : blogpost
             .getBloggerId());
     entry.setPublishedDate(blogpost.getDate());
     if (StringUtils.isNotBlank(author)) {
